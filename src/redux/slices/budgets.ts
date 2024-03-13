@@ -1,14 +1,8 @@
 import { PayloadAction, createSlice } from '@reduxjs/toolkit';
-
-interface Budget {
-  id: number;
-  planned_amount: number;
-  remaining_amount: number;
-  budget_date: string;
-}
+import type { BudgetType } from '../../utils/appTypes';
 
 interface BudgetsState {
-  budgets: Budget[];
+  budgets: BudgetType[];
 }
 
 const initialState: BudgetsState = {
@@ -19,13 +13,13 @@ const budgetsSlice = createSlice({
   name: 'budgets',
   initialState,
   reducers: {
-    addBudget: (state, action: PayloadAction<Budget>) => {
+    addBudget: (state, action: PayloadAction<BudgetType>) => {
       state.budgets.push(action.payload);
     },
     removeBudget: (state, action: PayloadAction<number>) => {
-      state.budgets = state.budgets.filter((budget: Budget) => budget.id !== action.payload);
+      state.budgets = state.budgets.filter((budget: BudgetType) => budget.id !== action.payload);
     },
-    setBudgets: (state, action: PayloadAction<Array<Budget>>) => {
+    setBudgets: (state, action: PayloadAction<Array<BudgetType>>) => {
       state.budgets = action.payload;
     },
   },

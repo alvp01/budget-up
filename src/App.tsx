@@ -1,10 +1,10 @@
 import './App.css';
-import Budgets from './features/Budget/Budgets';
+import MainPage from './pages/MainPage';
 
 function App() {
   return (
     <>
-      <Budgets/>
+      <MainPage />
     </>
   );
 }
